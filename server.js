@@ -18,6 +18,7 @@ app.use(express.json({extended: false}));
 */
 app.get('/', (reg, res) =>
     res.send('http get request sent to root api endpoint')
+    
 );
 
 /*
@@ -32,7 +33,7 @@ app.post('/api/users',
         check('email', 'Please enter a valid email')
             .isEmail(),
         check('password', 'Please enter a password with 6 or more characters')
-            .isLength({min: 6})
+            .isLength({ min: 6 })
 
     ],
 

@@ -2,7 +2,7 @@ import express from 'express';
 import connectDatabase from './config/db';
 import  { check, validationResult } from 'express-validator';
 import cors from 'cors';
-import User from './models/User';
+import User from './models/User.js';
 import bcrypt from 'bcryptjs';
 
 //Initialize express application
@@ -82,7 +82,7 @@ app.post('/api/users',
                 res.send('User successfully registered');
 
             } catch(error) {
-                res.status(500).send('Server error');
+                res.status(500).send(error);//'Server error');
 
             }
 

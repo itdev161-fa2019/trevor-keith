@@ -93,7 +93,7 @@ app.post('/api/users',
 
                 jwt.sign(
                     payload,
-                    config.get('jwtsecret'),
+                    config.get('jwtSecret'),
                     { expiresIn: '10hr' },
                     (err, token) => {
                         if(err) throw err;

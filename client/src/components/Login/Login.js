@@ -10,7 +10,7 @@ const Login = ({ authenticateUser }) => {
         password: ''
         
     });
-    const [errorData, setErrorData = useState({ errors: null })];
+    const [errorData, setErrorData] = useState({ errors: null });
 
     const { email, password } = userData;
     const {errors } = errorDAta;

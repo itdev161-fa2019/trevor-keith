@@ -42,7 +42,7 @@ const Login = ({ authenticateUser }) => {
             }
 
             const body = JSON.stringify(newUser);
-            const res = await axios('httlp://localhost:5000/api/login');
+            const res = await axios('http://localhost:5000/api/login');
 
             // Store user data and redirect
             localStorage.setItem('token', res.data.token);

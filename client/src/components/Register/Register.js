@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const Register = ({ authenticateUser }) => {
+    let history = useHistory();
+
     const [userData, setUserData] = useState({
         name : '',
         email: '',
@@ -52,7 +54,7 @@ const Register = ({ authenticateUser }) => {
 
                 // Store user data and redirect
                 localStorage.setItem('token', res.data.token);
-                history.pushState('/');
+                history.push('/');
 
             } catch(error) {
                 // Clear user data and set errors

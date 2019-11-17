@@ -168,8 +168,8 @@ app.post(
 );
 
 /*
- * @route POST api/posts 
- * @desc Create Post
+    @route POST api/posts 
+    @desc Create Post
 */
 app.post(
     'api/posts',

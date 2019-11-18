@@ -172,7 +172,7 @@ app.post(
     @desc Create Post
 */
 app.post(
-    'api/posts',
+    '/api/posts',
     [
         auth,
         [

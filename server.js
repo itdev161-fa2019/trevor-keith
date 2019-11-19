@@ -272,7 +272,7 @@ app.get('/api/posts/:id', auth, async(req, res) => {
  * @route DELETE api/posts/:id 
  * @desc Delete a post
 **/
-app.get('/api/posts/:id', auth, async(req, rex) => {
+app.get('/api/posts/:id', auth, async(req, res) => {
     try {
         const post = await Post.findById(req.params.id);
 

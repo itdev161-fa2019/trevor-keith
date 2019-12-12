@@ -14,18 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000')
-      .then((response) => {
-        this.setState({
-          data: response.data
-
-        })
-
-      })
-      .catch((error) => {
-        console.error(`Error fetching data: ${error}`);
-
-      })
+      this.authenticateUser();
 
   }
 
@@ -35,17 +24,41 @@ class App extends React.Component {
     if(!token) {
       localStorage.removeItem('user')
 
-      this.setState({
-        user: response.data.name,
-        token: token
-        
-        },
-        () => {
-          this.loadData();
+      this.setState({ user: null });
+
+    }
+
+    if(token) {
+      const config = {
+        headers: {
+          'x-auth-token': token
 
         }
-        
-      );
+
+      }
+
+      axios.get('http://localhost:5000/api/auth', config)
+        .then((response) => {
+          localStorage.setItem('user', response.data.name)
+          this.setState({
+            user: response.data.name,
+            token: token
+          },
+          () => {
+            this.loadData();
+
+          }
+        )
+
+        })
+        .catch((error) => {
+          localStorage.removeItem('user');
+          this.setState({ user: null });
+          console.error(`Error logging in: ${error}`);
+
+        }
+
+      )
 
     }
 

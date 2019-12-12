@@ -116,8 +116,8 @@ app.post('/api/users',
 );
 
 /*
-    @route POST api/login
-    @desc Login user
+ * @route POST api/login
+ * @desc Login user
 */
 app.post(
     '/api/login',
